@@ -4,15 +4,13 @@
   "version": "1.0.0",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
-    "start": "webpack-dev-server --config ./webpack.config.js --mode development",
+    "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
     "predeploy": "expo export:web",
     "deploy": "gh-pages -d web-build",
-    "dev": "webpack --config=Scripts/config/webpack.dev.js --watch",
-    "build": "webpack --mode production",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "webpack --config=Scripts/config/webpack.dev.js --watch"
   },
   "dependencies": {
     "@babel/preset-env": "^7.23.6",
