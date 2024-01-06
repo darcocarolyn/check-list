@@ -10,7 +10,7 @@ import {
   TextInput,
   TouchableOpacity,
   Image,
-  useWindowDimensions
+  Dimensions
 } from 'react-native';
 
 import Checkbox from 'expo-checkbox';
@@ -25,8 +25,10 @@ import YourImage from '../images/output_1576163316_0.jpg';
 
 
 const WeeklyTasks = () => {
-
-  const { height, width } = useWindowDimensions(); // Use useWindowDimensions inside the component
+console.log("Hello")
+console.log('Width:', width);
+console.log('Height:', height);
+  const { width, height } = Dimensions.get('window');
 
   const [newTask, setNewTask] = useState('');
   const [count, setCount] = useState(4);
@@ -104,7 +106,6 @@ const WeeklyTasks = () => {
     const filtered = filterData(newData[day], filter);
     setFilteredData(filtered);
   };
-console.log("Hello!")
   useEffect(() => {
     const filtered = filterData(data['Monday'], filter);
     setFilteredData(filtered);
