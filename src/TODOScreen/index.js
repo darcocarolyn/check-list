@@ -104,7 +104,7 @@ const WeeklyTasks = () => {
     const filtered = filterData(newData[day], filter);
     setFilteredData(filtered);
   };
-
+console.log("Hello!")
   useEffect(() => {
     const filtered = filterData(data['Monday'], filter);
     setFilteredData(filtered);
