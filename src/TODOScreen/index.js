@@ -9,8 +9,10 @@ import {
   StatusBar,
   TextInput,
   TouchableOpacity,
-  Image
+  Image,
+  useWindowDimensions
 } from 'react-native';
+
 import Checkbox from 'expo-checkbox';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faPen } from '@fortawesome/free-solid-svg-icons';
@@ -23,6 +25,9 @@ import YourImage from '../images/output_1576163316_0.jpg';
 
 
 const WeeklyTasks = () => {
+
+  const { height, width } = useWindowDimensions(); // Use useWindowDimensions inside the component
+
   const [newTask, setNewTask] = useState('');
   const [count, setCount] = useState(4);
   const [data, setData] = useState({
@@ -226,7 +231,7 @@ const WeeklyTasks = () => {
     console.log('filteredData changed:', filteredData);
   }, [filteredData]);
   return (
-    <SafeAreaView style={style.container}>
+    <SafeAreaView style={[style.container, { height, width }]}>
       <View style={style.dayButtonsContainer}>{renderDayButtons()}</View>
       <Image source={YourImage} style={style.image} />
       <TextInput
@@ -260,6 +265,7 @@ const WeeklyTasks = () => {
 };
 
 const style = StyleSheet.create({
+  
   container: {
     flex: 1,
     backgroundColor: '#EEF0F41',
