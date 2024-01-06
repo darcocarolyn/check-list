@@ -10,7 +10,7 @@ import {
   TextInput,
   TouchableOpacity,
   Image,
-  Dimensions
+  useWindowDimensions
 } from 'react-native';
 
 import Checkbox from 'expo-checkbox';
@@ -25,11 +25,10 @@ import YourImage from '../images/output_1576163316_0.jpg';
 
 
 const WeeklyTasks = () => {
-console.log("Hello")
-console.log('Width:', width);
-console.log('Height:', height);
-  const { width, height } = Dimensions.get('window');
-
+console.log('Width:', windowWidth);
+console.log('Height:', windowHeight);
+const windowWidth = useWindowDimensions().width;
+const windowHeight = useWindowDimensions().height;
   const [newTask, setNewTask] = useState('');
   const [count, setCount] = useState(4);
   const [data, setData] = useState({
@@ -232,7 +231,7 @@ console.log('Height:', height);
     console.log('filteredData changed:', filteredData);
   }, [filteredData]);
   return (
-    <SafeAreaView style={[style.container, { height, width }]}>
+    <SafeAreaView style={[style.container, { windowHeight, windowWidth }]}>
       <View style={style.dayButtonsContainer}>{renderDayButtons()}</View>
       <Image source={YourImage} style={style.image} />
       <TextInput
